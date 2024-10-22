@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import Slider from "react-slick";
-import slidesData from "../data/slides.json";
+import bannerSlide from "../data/slides.json";
+import slideData from "../data/slideData.json";
 
 const Presentation = () => {
   const sliderRef = useRef<Slider | null>(null);
@@ -12,7 +13,7 @@ const Presentation = () => {
     lazyLoad: true,
     fade: true,
     speed: 1000,
-    slidesToShow: 1,
+    slidesToShow: 3,
     swipeToSlide: false,
     slidesToScroll: 1,
     beforeChange: (current: number, next: number) => {
@@ -20,8 +21,45 @@ const Presentation = () => {
     },
   };
 
+  const baseSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+  };
+
+  const slideDataSettings = {
+    ...baseSettings,
+    initialSlide: 3,
+    centerMode: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          ...baseSettings,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   const handleNextSlide = () => {
-    console.log("Moving to next slide");
     if (sliderRef.current) {
       sliderRef.current.slickNext();
     }
@@ -33,12 +71,17 @@ const Presentation = () => {
         <div className="main-logo">Logo</div>
         {currentSlide === 1 && (
           <div>
-            <a href="#">Discover More</a>
+            <a
+              href="#"
+              className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded-full"
+            >
+              Discover More
+            </a>
           </div>
         )}
       </div>
       <Slider ref={sliderRef} {...settings}>
-        {slidesData.map((slide) => (
+        {bannerSlide.map((slide) => (
           <div key={slide.id} className="slide relative">
             {slide.type === "video" && (
               <>
@@ -49,7 +92,7 @@ const Presentation = () => {
                   muted
                   className="w-full object-cover"
                 />
-                <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-[#000] bg-opacity-50 transition-opacity duration-500">
+                <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-[#000] bg-opacity-50 transition- duration-500">
                   <h3 className="text-white text-3xl md:text-4xl font-bold">
                     {slide.content.overlay}
                   </h3>
@@ -76,20 +119,47 @@ const Presentation = () => {
             )}
             {slide.type === "image" && (
               <>
-                <img
-                  src={slide.content.image}
-                  alt={slide.content.overlay}
-                  className="w-full h-full object-cover"
-                />
-                <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 transition-opacity duration-500">
-                  <h3 className="text-white text-3xl md:text-4xl font-bold">
-                    {slide.content.overlay}
-                  </h3>
-                  <p className="text-white text-lg md:text-xl mt-2">
-                    {slide.content.description}
-                  </p>
+                <div className="star"></div>
+                <div className="meteor-1"></div>
+                <div className="meteor-2"></div>
+                <div className="meteor-3"></div>
+                <div className="meteor-4"></div>
+                <div className="meteor-5"></div>
+                <div className="meteor-6"></div>
+                <div className="meteor-7"></div>
+                <div className="meteor-8"></div>
+                <div className="meteor-9"></div>
+                <div className="meteor-10"></div>
+                <div className="meteor-11"></div>
+                <div className="meteor-12"></div>
+                <div className="meteor-13"></div>
+                <div className="meteor-14"></div>
+                <div className="meteor-15"></div>
+                <div className="earth-slide">
+                  <div className="planet-container">
+                    <div className="night"></div>
+                    <div className="day"></div>
+                    <div className="clouds"></div>
+                    <div className="inner-shadow"></div>
+                  </div>
                 </div>
               </>
+            )}
+
+            {currentSlide === 1 && (
+              <div className="nested-slider mt-5">
+                <h1 className="slide-title">Donec Nec Justo</h1>
+                <Slider {...slideDataSettings}>
+                  {slideData.map((dataItem) => (
+                    <div key={dataItem.id} className="slide-data-item">
+                      <div className="slide-content">
+                        <h4 className="font-bold text-lg">{dataItem.title}</h4>
+                        <p>{dataItem.content}</p>
+                      </div>
+                    </div>
+                  ))}
+                </Slider>
+              </div>
             )}
           </div>
         ))}
