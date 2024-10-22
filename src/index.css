@@ -108,6 +108,10 @@ video {
   background-position: center;
   height: 100vh;
   width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-left: 20px;
 }
 
 .night {

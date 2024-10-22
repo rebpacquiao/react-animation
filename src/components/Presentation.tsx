@@ -60,9 +60,7 @@ const Presentation = () => {
   };
 
   const handleNextSlide = () => {
-    if (sliderRef.current) {
-      sliderRef.current.slickNext();
-    }
+    sliderRef.current?.slickNext();
   };
 
   return (
@@ -92,7 +90,7 @@ const Presentation = () => {
                   muted
                   className="w-full object-cover"
                 />
-                <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-[#000] bg-opacity-50 transition- duration-500">
+                <div className="overlay absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 transition duration-500">
                   <h3 className="text-white text-3xl md:text-4xl font-bold">
                     {slide.content.overlay}
                   </h3>
@@ -120,21 +118,9 @@ const Presentation = () => {
             {slide.type === "image" && (
               <>
                 <div className="star"></div>
-                <div className="meteor-1"></div>
-                <div className="meteor-2"></div>
-                <div className="meteor-3"></div>
-                <div className="meteor-4"></div>
-                <div className="meteor-5"></div>
-                <div className="meteor-6"></div>
-                <div className="meteor-7"></div>
-                <div className="meteor-8"></div>
-                <div className="meteor-9"></div>
-                <div className="meteor-10"></div>
-                <div className="meteor-11"></div>
-                <div className="meteor-12"></div>
-                <div className="meteor-13"></div>
-                <div className="meteor-14"></div>
-                <div className="meteor-15"></div>
+                {[...Array(15)].map((_, index) => (
+                  <div key={index} className={`meteor-${index + 1}`}></div>
+                ))}
                 <div className="earth-slide">
                   <div className="planet-container">
                     <div className="night"></div>
@@ -145,16 +131,39 @@ const Presentation = () => {
                 </div>
               </>
             )}
-
             {currentSlide === 1 && (
               <div className="nested-slider mt-5">
                 <h1 className="slide-title">Donec Nec Justo</h1>
                 <Slider {...slideDataSettings}>
                   {slideData.map((dataItem) => (
                     <div key={dataItem.id} className="slide-data-item">
-                      <div className="slide-content">
-                        <h4 className="font-bold text-lg">{dataItem.title}</h4>
-                        <p>{dataItem.content}</p>
+                      <div className="max-w-sm rounded bg-white overflow-hidden shadow-lg">
+                        <img
+                          className="w-full"
+                          src="./card-top.jpg"
+                          alt="Sunset in the mountains"
+                          onLoad={() => console.log("Image loaded")}
+                          onError={() => console.error("Image failed to load")}
+                        />
+                        <div className="px-6 py-4">
+                          <div className="font-bold text-xl mb-2">
+                            {dataItem.title}
+                          </div>
+                          <p className="text-gray-700 text-base">
+                            {dataItem.content}
+                          </p>
+                        </div>
+                        <div className="px-6 pt-4 pb-2">
+                          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                            #photography
+                          </span>
+                          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                            #travel
+                          </span>
+                          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                            #winter
+                          </span>
+                        </div>
                       </div>
                     </div>
                   ))}
