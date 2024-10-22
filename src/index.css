@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow: hidden;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  text-align: center;
+  left: 0;
+  right: 0;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+.logo-section {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  color: #fff;
+  justify-content: space-between;
+  width: 100%;
+  padding: 25px;
+}
+
+.main-logo {
+  border: 1px solid #fff;
+  padding: 10px 67px;
+  text-transform: uppercase;
+}

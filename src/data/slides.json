@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "type": "video",
+    "content": {
+      "video": "mov_bbb.mp4",
+      "overlay": "Welcome to Our Site",
+      "description": "Experience the best of our offerings."
+    }
+  },
+  {
+    "id": 2,
+    "type": "image",
+    "content": {
+      "image": "slide-2-bg.jpg",
+      "overlay": "Discover More",
+      "description": "Explore our exciting features."
+    }
+  }
+]
