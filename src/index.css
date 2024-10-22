@@ -42,3 +42,20 @@ p {
   padding: 10px 67px;
   text-transform: uppercase;
 }
+
+video {
+  height: 100vh;
+}
+
+.arrow-down {
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.arrow-down svg {
+  fill: #fff;
+}
