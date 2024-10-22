@@ -1,9 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Slider from "react-slick";
 import slidesData from "../data/slides.json";
 
 const Presentation = () => {
   const sliderRef = useRef<Slider | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const settings = {
     dots: true,
@@ -14,10 +15,13 @@ const Presentation = () => {
     slidesToShow: 1,
     swipeToSlide: false,
     slidesToScroll: 1,
+    beforeChange: (current: number, next: number) => {
+      setCurrentSlide(next);
+    },
   };
 
   const handleNextSlide = () => {
-    console.log("test");
+    console.log("Moving to next slide");
     if (sliderRef.current) {
       sliderRef.current.slickNext();
     }
@@ -27,9 +31,11 @@ const Presentation = () => {
     <div className="carousel-container relative overflow-hidden">
       <div className="logo-section">
         <div className="main-logo">Logo</div>
-        <div>
-          <a href="#">Discover More</a>
-        </div>
+        {currentSlide === 1 && (
+          <div>
+            <a href="#">Discover More</a>
+          </div>
+        )}
       </div>
       <Slider ref={sliderRef} {...settings}>
         {slidesData.map((slide) => (
@@ -61,7 +67,7 @@ const Presentation = () => {
                     >
                       <path d="M0 0h48v48H0z" fill="none" />
                       <g id="Shopicon">
-                        <polygon points="24,29.172 9.414,14.586 6.586,17.414 24,34.828 41.414,17.414 38.586,14.586 	" />
+                        <polygon points="24,29.172 9.414,14.586 6.586,17.414 24,34.828 41.414,17.414 38.586,14.586" />
                       </g>
                     </svg>
                   </button>
