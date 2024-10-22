@@ -2,31 +2,37 @@
   {
     "id": 1,
     "title": "Lorem ipsum #1",
-    "content": "consectetur adipiscing elit, sed do eiusmod At vero eos et accusamus et iusto odio dignissimos ducimus"
+    "content": "consectetur adipiscing elit, sed do eiusmod At vero eos et accusamus et iusto odio dignissimos ducimus",
+    "tags": ["#photography", "#travel", "#winter"]
   },
   {
     "id": 2,
     "title": "Lorem ipsum #2",
-    "content": "consectetur adipiscing elit, sed do eiusmod At vero eos et accusamus et iusto odio dignissimos ducimus "
+    "content": "consectetur adipiscing elit, sed do eiusmod At vero eos et accusamus et iusto odio dignissimos ducimus",
+    "tags": ["#photography", "#travel", "#winter"]
   },
   {
     "id": 3,
     "title": "Lorem ipsum #3",
-    "content": "consectetur adipiscing elit, sed do eiusmod At vero eos et accusamus et iusto odio dignissimos ducimus"
+    "content": "consectetur adipiscing elit, sed do eiusmod At vero eos et accusamus et iusto odio dignissimos ducimus",
+    "tags": ["#photography", "#travel", "#winter"]
   },
   {
     "id": 4,
     "title": "Lorem ipsum #4",
-    "content": "consectetur adipiscing elit, sed do eiusmod At vero eos et accusamus et iusto odio dignissimos ducimus "
+    "content": "consectetur adipiscing elit, sed do eiusmod At vero eos et accusamus et iusto odio dignissimos ducimus",
+    "tags": ["#photography", "#travel", "#winter"]
   },
   {
     "id": 5,
     "title": "Lorem ipsum #5",
-    "content": "consectetur adipiscing elit, sed do eiusmod At vero eos et accusamus et iusto odio dignissimos ducimus "
+    "content": "consectetur adipiscing elit, sed do eiusmod At vero eos et accusamus et iusto odio dignissimos ducimus",
+    "tags": ["#photography", "#travel", "#winter"]
   },
   {
     "id": 6,
     "title": "Lorem ipsum #6",
-    "content": "consectetur adipiscing elit, sed do eiusmod At vero eos et accusamus et iusto odio dignissimos ducimus"
+    "content": "consectetur adipiscing elit, sed do eiusmod At vero eos et accusamus et iusto odio dignissimos ducimus",
+    "tags": ["#photography", "#travel", "#winter"]
   }
 ]

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Slider from "react-slick";
 import bannerSlide from "../data/slides.json";
 import slideData from "../data/slideData.json";
@@ -12,11 +12,11 @@ const Presentation = () => {
     infinite: true,
     lazyLoad: true,
     fade: true,
-    speed: 1000,
+    speed: 600,
     slidesToShow: 3,
     swipeToSlide: false,
     slidesToScroll: 1,
-    beforeChange: (current: number, next: number) => {
+    beforeChange: (_current: number, next: number) => {
       setCurrentSlide(next);
     },
   };
@@ -154,15 +154,14 @@ const Presentation = () => {
                           </p>
                         </div>
                         <div className="px-6 pt-4 pb-2">
-                          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                            #photography
-                          </span>
-                          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                            #travel
-                          </span>
-                          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                            #winter
-                          </span>
+                          {dataItem.tags.map((tag: any, index: number) => (
+                            <span
+                              key={index}
+                              className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+                            >
+                              {tag}
+                            </span>
+                          ))}
                         </div>
                       </div>
                     </div>
